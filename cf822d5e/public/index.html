@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Penelope — an autonomous e-commerce support agent with real tool calls, refund guardrails and a complete audit log.">
+  <title>Penelope · Autonomous seller support</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="aurora aurora-a"></div>
+    <div class="aurora aurora-b"></div>
+    <div class="aurora aurora-c"></div>
+    <div class="scene-depth">
+      <div class="gyro gyro-a"><span></span><span></span><span></span><i></i></div>
+      <div class="gyro gyro-b"><span></span><span></span><span></span><i></i></div>
+      <div class="prism prism-a"><i></i><i></i><i></i><i></i></div>
+      <div class="prism prism-b"><i></i><i></i><i></i><i></i></div>
+      <div class="prism prism-c"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="grid-plane"></div>
+    <div class="noise"></div>
+  </div>
+  <div class="pointer-glow" id="pointerGlow" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" data-tilt aria-hidden="true">
+          <span class="brand-orb"></span>
+          <span class="brand-shine"></span>
+          <span class="brand-spark s1"></span>
+          <span class="brand-spark s2"></span>
+          <span class="brand-spark s3"></span>
+        </div>
+        <div class="brand-copy">
+          <span class="brand-name">Penelope<span class="brand-star">✦</span></span>
+          <span class="brand-sub">Autonomous support for sellers</span>
+        </div>
+      </div>
+      <div class="topbar-meta">
+        <span class="live-pill"><span class="live-dot" aria-hidden="true"></span> Agent online</span>
+        <span class="store-pill">Northwind Supply · sandbox</span>
+        <button class="text-btn" id="resetBtn" type="button">Reset demo</button>
+      </div>
+    </header>
+
+    <div class="flowbar" aria-label="How Penelope handles every message">
+      <span class="flow-kicker"><span class="live-dot" aria-hidden="true"></span> Every turn</span>
+      <span class="flow-step"><b>01</b> Message</span>
+      <span class="flow-arrow" aria-hidden="true">→</span>
+      <span class="flow-step"><b>02</b> Understand</span>
+      <span class="flow-arrow" aria-hidden="true">→</span>
+      <span class="flow-step"><b>03</b> Store API</span>
+      <span class="flow-arrow" aria-hidden="true">→</span>
+      <span class="flow-step"><b>04</b> Guardrail</span>
+      <span class="flow-arrow" aria-hidden="true">→</span>
+      <span class="flow-step"><b>05</b> Act</span>
+      <span class="flow-arrow" aria-hidden="true">→</span>
+      <span class="flow-step"><b>06</b> Audit</span>
+      <span class="flow-seal">Append-only</span>
+    </div>
+
+    <main class="workspace">
+      <aside class="rail rail-left">
+        <section class="panel agent-panel" data-tilt data-glow>
+          <div class="agent-head">
+            <div class="agent-orb" id="agentOrb" aria-hidden="true">
+              <span class="orb-ring ring-a"></span>
+              <span class="orb-ring ring-b"></span>
+              <span class="orb-ring ring-c"></span>
+              <span class="orb-core"><span>P</span></span>
+              <span class="agent-ping"></span>
+            </div>
+            <div class="agent-title">
+              <h2>Penelope</h2>
+              <p>Policy-driven support agent</p>
+            </div>
+          </div>
+          <div class="agent-status" id="agentStatus" aria-live="polite">
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span id="agentStatusText">Online · 12 orders in view</span>
+          </div>
+          <p class="agent-tagline">Autonomous · guardrailed · audited</p>
+        </section>
+
+        <section class="panel scenarios-panel" data-tilt>
+          <div class="panel-head">
+            <span class="panel-label">Case library</span>
+            <span class="panel-hint">12 cases · scroll ↓</span>
+          </div>
+
+          <button class="guided-demo" id="guidedDemo" type="button">
+            <span class="guided-play" aria-hidden="true"></span>
+            <span class="guided-copy">
+              <strong id="guidedTitle">Run the 3-turn demo</strong>
+              <small id="guidedSub">Track → auto-refund → escalation</small>
+            </span>
+            <span class="guided-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <div class="scenario-list" id="scenarioList">
+            <div class="scenario-group" data-tone="resolve">
+              <div class="group-head"><span>Resolve</span><span>5 cases</span></div>
+              <button class="scenario" type="button" data-message="Where is my order 1002?">
+                <span class="scenario-num">01</span>
+                <span class="scenario-copy"><strong>Track in transit</strong><small>Order 1002 · UPS 2nd Day</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="Where is my order 1004?">
+                <span class="scenario-num">02</span>
+                <span class="scenario-copy"><strong>Out for delivery</strong><small>Order 1004 · arrives today</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="I want to return order 1001">
+                <span class="scenario-num">03</span>
+                <span class="scenario-copy"><strong>Start a return</strong><small>Order 1001 · delivered 4d ago</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="Please refund order 1005">
+                <span class="scenario-num">04</span>
+                <span class="scenario-copy"><strong>Auto-approve refund</strong><small>Order 1005 · $34.99 · under limit</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="Where is order 1012?">
+                <span class="scenario-num">05</span>
+                <span class="scenario-copy"><strong>Cancelled order</strong><small>Order 1012 · no shipment</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+
+            <div class="scenario-group" data-tone="guard">
+              <div class="group-head"><span>Guardrails</span><span>4 cases</span></div>
+              <button class="scenario" type="button" data-message="Refund order 1008">
+                <span class="scenario-num">06</span>
+                <span class="scenario-copy"><strong>Block a duplicate</strong><small>Order 1008 · already refunded</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="Refund order 1006">
+                <span class="scenario-num">07</span>
+                <span class="scenario-copy"><strong>Over the $50 limit</strong><small>Order 1006 · $210 → human</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="Please refund order 1002">
+                <span class="scenario-num">08</span>
+                <span class="scenario-copy"><strong>Refund in transit</strong><small>Order 1002 · blocked by policy</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="I want to return order 1003">
+                <span class="scenario-num">09</span>
+                <span class="scenario-copy"><strong>Past return window</strong><small>Order 1003 · 46 days → human</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+
+            <div class="scenario-group" data-tone="handoff">
+              <div class="group-head"><span>Hand off &amp; recover</span><span>3 cases</span></div>
+              <button class="scenario" type="button" data-message="Where is my order 1007?">
+                <span class="scenario-num">10</span>
+                <span class="scenario-copy"><strong>Stale parcel</strong><small>Order 1007 · no scan in 12 days</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="Track my order maya.chen@example.com">
+                <span class="scenario-num">11</span>
+                <span class="scenario-copy"><strong>Find by email</strong><small>maya.chen@example.com</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+              <button class="scenario" type="button" data-message="I need a human">
+                <span class="scenario-num">12</span>
+                <span class="scenario-copy"><strong>Human handoff</strong><small>Structured summary for the team</small></span>
+                <span class="scenario-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel guardrails-panel" data-tilt>
+          <div class="panel-head">
+            <span class="panel-label">Guardrails</span>
+            <span class="lock-pill"><span class="lock-icon" aria-hidden="true"></span> API enforced</span>
+          </div>
+          <div class="guardrail-chips">
+            <span>Auto-refund<strong id="autoLimit">$50.00</strong></span>
+            <span>Daily cap<strong id="dailyLimit">$150.00</strong></span>
+            <span>Return window<strong id="returnWindow">30 days</strong></span>
+          </div>
+          <div class="usage">
+            <div class="usage-head"><span>Auto-refunded today</span><span id="usageValue">$0.00 / $150.00</span></div>
+            <div class="usage-track"><div class="usage-fill" id="usageBar"></div></div>
+            <div class="usage-customer" id="usageCustomer">No active order yet</div>
+          </div>
+          <p class="guardrail-note">The store API rejects anything above these caps — even if the agent tries.</p>
+        </section>
+      </aside>
+
+      <section class="panel chat-panel">
+        <header class="chat-head">
+          <div class="chat-identity">
+            <div class="channel-avatar" id="channelAvatar">WA</div>
+            <div>
+              <h1 id="channelTitle">WhatsApp sandbox</h1>
+              <p><span class="online-dot" aria-hidden="true"></span><span id="channelSubtitle">Penelope is handling this conversation</span></p>
+            </div>
+          </div>
+          <div class="chat-tools">
+            <span class="mode-pill"><span class="mode-spark" aria-hidden="true"></span> Autonomous</span>
+            <button class="icon-btn" id="newChatBtn" type="button" title="New conversation" aria-label="New conversation">+</button>
+          </div>
+        </header>
+
+        <div class="chat-progress" aria-hidden="true"><i id="chatProgress"></i></div>
+
+        <div class="chat-scroll" id="chatScroll">
+          <div class="day-divider"><span>Today</span></div>
+          <div class="message-list" id="messageList" aria-live="polite" aria-relevant="additions"></div>
+        </div>
+
+        <div class="quick-strip" id="quickStrip">
+          <button type="button" data-message="Where is my order 1002?">Track 1002</button>
+          <button type="button" data-message="I want to return order 1001">Return 1001</button>
+          <button type="button" data-message="Please refund order 1005">Refund 1005</button>
+          <button type="button" data-message="Refund order 1006">Over limit 1006</button>
+          <button type="button" data-message="I need a human">Human handoff</button>
+        </div>
+
+        <form class="composer" id="composer">
+          <textarea id="messageInput" rows="1" maxlength="1200" placeholder="Message Penelope about an order…" aria-label="Message Penelope about an order"></textarea>
+          <button class="send-btn" type="submit" id="sendBtn" aria-label="Send message">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </button>
+        </form>
+        <div class="composer-hint">Enter to send · Shift + Enter for a new line · Mock store data only</div>
+      </section>
+
+      <aside class="rail rail-right">
+        <section class="panel activity-panel">
+          <div class="activity-head">
+            <div class="tabs" role="tablist" aria-label="Agent activity">
+              <button class="tab active" id="traceTab" type="button" data-tab="trace" role="tab" aria-selected="true">Agent trace</button>
+              <button class="tab" id="auditTab" type="button" data-tab="audit" role="tab" aria-selected="false">Audit log <span class="badge" id="auditBadge">0</span></button>
+            </div>
+            <a class="icon-link" id="downloadAudit" href="/api/logs/download" download title="Download full audit log" aria-label="Download full audit log">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12"></path>
+                <path d="m7 10 5 5 5-5"></path>
+                <path d="M5 21h14"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="activity-body" id="traceView" role="tabpanel">
+            <div class="activity-intro">
+              <span class="panel-label">Last turn</span>
+              <span class="step-count" id="stepCount">0 steps</span>
+            </div>
+            <div class="trace-list" id="traceList">
+              <div class="empty-state">
+                <div class="empty-mark" aria-hidden="true">↳</div>
+                <strong>No trace yet</strong>
+                <p>Run a scenario. Every lookup, policy check and action will appear here.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-body hidden" id="auditView" role="tabpanel">
+            <div class="audit-summary">
+              <span id="auditMeta">0 events in this session</span>
+              <span class="audit-live"><span class="live-dot" aria-hidden="true"></span> Append-only</span>
+            </div>
+            <div class="audit-list" id="auditList">
+              <div class="empty-state">
+                <div class="empty-mark" aria-hidden="true">⌁</div>
+                <strong>No events yet</strong>
+                <p>Tool calls, guardrail decisions and actions are logged here.</p>
+              </div>
+            </div>
+          </div>
+
+          <footer class="activity-foot">
+            <span class="foot-dot" aria-hidden="true"></span>
+            Persisted to <code>data/audit.jsonl</code>
+          </footer>
+        </section>
+
+        <section class="panel store-panel" data-tilt data-glow>
+          <div class="panel-head">
+            <span class="panel-label">Sandbox store</span>
+            <span class="panel-hint">Northwind</span>
+          </div>
+          <div class="store-stats">
+            <div><strong id="statOrders">12</strong><span>orders</span></div>
+            <div><strong id="statRefunds">1</strong><span>refunds</span></div>
+            <div><strong id="statEscalations">0</strong><span>handoffs</span></div>
+          </div>
+          <p class="store-note">12 seeded orders across 6 statuses. Every mutation persists to <code>store.json</code>.</p>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

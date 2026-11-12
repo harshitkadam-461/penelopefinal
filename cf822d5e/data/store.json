@@ -1,0 +1,689 @@
+{
+  "version": 1,
+  "storeName": "Northwind Supply Co.",
+  "createdAt": "2026-11-12T03:53:20.397Z",
+  "orders": [
+    {
+      "id": "1001",
+      "customerId": "C-101",
+      "customer": {
+        "id": "C-101",
+        "name": "Maya Chen",
+        "email": "maya.chen@example.com",
+        "phone": "+1 415 555 0101"
+      },
+      "status": "delivered",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-03T03:53:20.397Z",
+      "deliveredAt": "2026-11-08T03:53:20.397Z",
+      "address": {
+        "line1": "1840 Grand Ave",
+        "city": "Oakland",
+        "state": "CA",
+        "postalCode": "94612"
+      },
+      "items": [
+        {
+          "sku": "NW-BP28",
+          "name": "Trailhead 28L Backpack",
+          "qty": 1,
+          "unitCents": 12900,
+          "variant": "Moss / 28L"
+        },
+        {
+          "sku": "NW-SK-M",
+          "name": "Merino Hiker Socks",
+          "qty": 1,
+          "unitCents": 1800,
+          "variant": "Charcoal / M"
+        }
+      ],
+      "totalCents": 14700,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "UPS",
+        "tracking": "1Z999AA10123456784",
+        "service": "UPS Ground",
+        "status": "delivered",
+        "eta": "2026-11-08T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-11-04T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Oakland, CA"
+          },
+          {
+            "at": "2026-11-05T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Oakland, CA"
+          },
+          {
+            "at": "2026-11-06T03:53:20.397Z",
+            "label": "Arrived at regional hub",
+            "location": "Sacramento, CA"
+          },
+          {
+            "at": "2026-11-07T03:53:20.397Z",
+            "label": "Out for delivery",
+            "location": "Oakland, CA"
+          },
+          {
+            "at": "2026-11-08T03:53:20.397Z",
+            "label": "Delivered — left at front door",
+            "location": "Oakland, CA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1002",
+      "customerId": "C-102",
+      "customer": {
+        "id": "C-102",
+        "name": "Liam Patel",
+        "email": "liam.patel@example.com",
+        "phone": "+1 512 555 0102"
+      },
+      "status": "in_transit",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-08T03:53:20.397Z",
+      "deliveredAt": null,
+      "address": {
+        "line1": "411 W 4th St",
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": "78701"
+      },
+      "items": [
+        {
+          "sku": "NW-RS-L",
+          "name": "Ridgeline Rain Shell",
+          "qty": 1,
+          "unitCents": 9800,
+          "variant": "Slate / L"
+        }
+      ],
+      "totalCents": 9800,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "UPS",
+        "tracking": "1Z999AA10198765432",
+        "service": "UPS 2nd Day Air",
+        "status": "in_transit",
+        "eta": "2026-11-14T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-11-08T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Reno, NV"
+          },
+          {
+            "at": "2026-11-09T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Reno, NV"
+          },
+          {
+            "at": "2026-11-10T03:53:20.397Z",
+            "label": "Arrived at sort facility",
+            "location": "Sacramento, CA"
+          },
+          {
+            "at": "2026-11-11T03:53:20.397Z",
+            "label": "Departed sort facility",
+            "location": "Phoenix, AZ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1003",
+      "customerId": "C-103",
+      "customer": {
+        "id": "C-103",
+        "name": "Sofia Reyes",
+        "email": "sofia.reyes@example.com",
+        "phone": "+1 305 555 0103"
+      },
+      "status": "delivered",
+      "channel": "WhatsApp",
+      "placedAt": "2026-09-23T03:53:20.397Z",
+      "deliveredAt": "2026-09-27T03:53:20.397Z",
+      "address": {
+        "line1": "900 Biscayne Blvd",
+        "city": "Miami",
+        "state": "FL",
+        "postalCode": "33132"
+      },
+      "items": [
+        {
+          "sku": "NW-DJ-M",
+          "name": "Summit Down Jacket",
+          "qty": 1,
+          "unitCents": 24000,
+          "variant": "Navy / M"
+        }
+      ],
+      "totalCents": 24000,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "FedEx",
+        "tracking": "782341905551",
+        "service": "FedEx Home Delivery",
+        "status": "delivered",
+        "eta": "2026-09-27T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-09-24T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Denver, CO"
+          },
+          {
+            "at": "2026-09-25T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Denver, CO"
+          },
+          {
+            "at": "2026-09-27T03:53:20.397Z",
+            "label": "Delivered",
+            "location": "Miami, FL"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1004",
+      "customerId": "C-104",
+      "customer": {
+        "id": "C-104",
+        "name": "Noah Kim",
+        "email": "noah.kim@example.com",
+        "phone": "+1 206 555 0104"
+      },
+      "status": "out_for_delivery",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-10T03:53:20.397Z",
+      "deliveredAt": null,
+      "address": {
+        "line1": "1201 Pike St",
+        "city": "Seattle",
+        "state": "WA",
+        "postalCode": "98101"
+      },
+      "items": [
+        {
+          "sku": "NW-SP-R",
+          "name": "Basecamp Sleeping Pad",
+          "qty": 1,
+          "unitCents": 8900,
+          "variant": "Regular"
+        }
+      ],
+      "totalCents": 8900,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "FedEx",
+        "tracking": "782341905990",
+        "service": "FedEx Ground",
+        "status": "out_for_delivery",
+        "eta": "2026-11-12T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-11-10T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Portland, OR"
+          },
+          {
+            "at": "2026-11-10T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Portland, OR"
+          },
+          {
+            "at": "2026-11-11T03:53:20.397Z",
+            "label": "Arrived at local facility",
+            "location": "Seattle, WA"
+          },
+          {
+            "at": "2026-11-12T00:53:20.397Z",
+            "label": "On vehicle for delivery",
+            "location": "Seattle, WA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1005",
+      "customerId": "C-105",
+      "customer": {
+        "id": "C-105",
+        "name": "Ava Thompson",
+        "email": "ava.thompson@example.com",
+        "phone": "+1 617 555 0105"
+      },
+      "status": "delivered",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-01T03:53:20.397Z",
+      "deliveredAt": "2026-11-04T03:53:20.397Z",
+      "address": {
+        "line1": "77 Massachusetts Ave",
+        "city": "Cambridge",
+        "state": "MA",
+        "postalCode": "02139"
+      },
+      "items": [
+        {
+          "sku": "NW-BT-750",
+          "name": "Insulated Bottle 750ml",
+          "qty": 1,
+          "unitCents": 3499,
+          "variant": "Sand"
+        }
+      ],
+      "totalCents": 3499,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "USPS",
+        "tracking": "9400111899223197421111",
+        "service": "USPS Ground Advantage",
+        "status": "delivered",
+        "eta": "2026-11-04T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-11-02T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Newark, NJ"
+          },
+          {
+            "at": "2026-11-03T03:53:20.397Z",
+            "label": "Accepted at USPS origin facility",
+            "location": "Newark, NJ"
+          },
+          {
+            "at": "2026-11-04T03:53:20.397Z",
+            "label": "Delivered, front porch",
+            "location": "Cambridge, MA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1006",
+      "customerId": "C-106",
+      "customer": {
+        "id": "C-106",
+        "name": "Ethan Brooks",
+        "email": "ethan.brooks@example.com",
+        "phone": "+1 720 555 0106"
+      },
+      "status": "delivered",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-06T03:53:20.397Z",
+      "deliveredAt": "2026-11-10T03:53:20.397Z",
+      "address": {
+        "line1": "1600 Broadway",
+        "city": "Denver",
+        "state": "CO",
+        "postalCode": "80202"
+      },
+      "items": [
+        {
+          "sku": "NW-TP",
+          "name": "Alpine Trekking Poles",
+          "qty": 1,
+          "unitCents": 7400,
+          "variant": null
+        },
+        {
+          "sku": "NW-TENT-2P",
+          "name": "Ultralight 2P Tent",
+          "qty": 1,
+          "unitCents": 13600,
+          "variant": "Alpine Green"
+        }
+      ],
+      "totalCents": 21000,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "UPS",
+        "tracking": "1Z999AA10155551212",
+        "service": "UPS Ground",
+        "status": "delivered",
+        "eta": "2026-11-10T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-11-07T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Salt Lake City, UT"
+          },
+          {
+            "at": "2026-11-08T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Salt Lake City, UT"
+          },
+          {
+            "at": "2026-11-10T03:53:20.397Z",
+            "label": "Delivered",
+            "location": "Denver, CO"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1007",
+      "customerId": "C-107",
+      "customer": {
+        "id": "C-107",
+        "name": "Isla Garcia",
+        "email": "isla.garcia@example.com",
+        "phone": "+1 305 555 0107"
+      },
+      "status": "in_transit",
+      "channel": "WhatsApp",
+      "placedAt": "2026-10-27T03:53:20.397Z",
+      "deliveredAt": null,
+      "address": {
+        "line1": "245 Ocean Dr",
+        "city": "Miami Beach",
+        "state": "FL",
+        "postalCode": "33139"
+      },
+      "items": [
+        {
+          "sku": "NW-CS",
+          "name": "Pocket Camp Stove",
+          "qty": 1,
+          "unitCents": 5800,
+          "variant": null
+        }
+      ],
+      "totalCents": 5800,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "USPS",
+        "tracking": "9400111899223197428490",
+        "service": "USPS Priority Mail",
+        "status": "in_transit",
+        "eta": "2026-11-09T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-10-27T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Columbus, OH"
+          },
+          {
+            "at": "2026-10-28T03:53:20.397Z",
+            "label": "Accepted at USPS origin facility",
+            "location": "Columbus, OH"
+          },
+          {
+            "at": "2026-10-31T03:53:20.397Z",
+            "label": "Arrived at USPS regional origin facility",
+            "location": "Columbus, OH"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1008",
+      "customerId": "C-108",
+      "customer": {
+        "id": "C-108",
+        "name": "Lucas Meyer",
+        "email": "lucas.meyer@example.com",
+        "phone": "+1 503 555 0108"
+      },
+      "status": "delivered",
+      "channel": "WhatsApp",
+      "placedAt": "2026-10-28T03:53:20.397Z",
+      "deliveredAt": "2026-10-31T03:53:20.397Z",
+      "address": {
+        "line1": "815 SE Alder St",
+        "city": "Portland",
+        "state": "OR",
+        "postalCode": "97214"
+      },
+      "items": [
+        {
+          "sku": "NW-HL",
+          "name": "TrailBeam Headlamp",
+          "qty": 1,
+          "unitCents": 4500,
+          "variant": null
+        }
+      ],
+      "totalCents": 4500,
+      "refundedTotalCents": 4500,
+      "shipment": {
+        "carrier": "UPS",
+        "tracking": "1Z999AA10133334444",
+        "service": "UPS Ground",
+        "status": "delivered",
+        "eta": "2026-10-31T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-10-29T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Boise, ID"
+          },
+          {
+            "at": "2026-10-30T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Boise, ID"
+          },
+          {
+            "at": "2026-10-31T03:53:20.397Z",
+            "label": "Delivered",
+            "location": "Portland, OR"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1009",
+      "customerId": "C-109",
+      "customer": {
+        "id": "C-109",
+        "name": "Emma Silva",
+        "email": "emma.silva@example.com",
+        "phone": "+1 212 555 0109"
+      },
+      "status": "processing",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-11T03:53:20.397Z",
+      "deliveredAt": null,
+      "address": {
+        "line1": "350 5th Ave",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10118"
+      },
+      "items": [
+        {
+          "sku": "NW-SK-L",
+          "name": "Merino Hiker Socks",
+          "qty": 1,
+          "unitCents": 1800,
+          "variant": "Charcoal / L"
+        },
+        {
+          "sku": "NW-DB-10",
+          "name": "10L Dry Bag",
+          "qty": 1,
+          "unitCents": 2200,
+          "variant": "Yellow"
+        }
+      ],
+      "totalCents": 4000,
+      "refundedTotalCents": 0,
+      "shipment": null
+    },
+    {
+      "id": "1010",
+      "customerId": "C-110",
+      "customer": {
+        "id": "C-110",
+        "name": "Oliver Novak",
+        "email": "oliver.novak@example.com",
+        "phone": "+1 312 555 0110"
+      },
+      "status": "delivered",
+      "channel": "WhatsApp",
+      "placedAt": "2026-10-17T03:53:20.397Z",
+      "deliveredAt": "2026-10-21T03:53:20.397Z",
+      "address": {
+        "line1": "233 S Wacker Dr",
+        "city": "Chicago",
+        "state": "IL",
+        "postalCode": "60606"
+      },
+      "items": [
+        {
+          "sku": "NW-TS-10",
+          "name": "Ridge Runner Trail Shoes",
+          "qty": 1,
+          "unitCents": 15000,
+          "variant": "Grey / 10"
+        }
+      ],
+      "totalCents": 15000,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "FedEx",
+        "tracking": "782341906112",
+        "service": "FedEx Ground",
+        "status": "delivered",
+        "eta": "2026-10-21T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-10-18T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Memphis, TN"
+          },
+          {
+            "at": "2026-10-20T03:53:20.397Z",
+            "label": "In transit",
+            "location": "Indianapolis, IN"
+          },
+          {
+            "at": "2026-10-21T03:53:20.397Z",
+            "label": "Delivered",
+            "location": "Chicago, IL"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1011",
+      "customerId": "C-111",
+      "customer": {
+        "id": "C-111",
+        "name": "Mia Rossi",
+        "email": "mia.rossi@example.com",
+        "phone": "+1 646 555 0111"
+      },
+      "status": "returned",
+      "channel": "WhatsApp",
+      "placedAt": "2026-10-20T03:53:20.397Z",
+      "deliveredAt": "2026-10-23T03:53:20.397Z",
+      "address": {
+        "line1": "55 Water St",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10041"
+      },
+      "items": [
+        {
+          "sku": "NW-CH",
+          "name": "Basecamp Chair",
+          "qty": 1,
+          "unitCents": 7500,
+          "variant": "Rust"
+        }
+      ],
+      "totalCents": 7500,
+      "refundedTotalCents": 0,
+      "shipment": {
+        "carrier": "UPS",
+        "tracking": "1Z999AA10177778888",
+        "service": "UPS Ground",
+        "status": "delivered",
+        "eta": "2026-10-23T03:53:20.397Z",
+        "events": [
+          {
+            "at": "2026-10-21T03:53:20.397Z",
+            "label": "Shipping label created",
+            "location": "Charlotte, NC"
+          },
+          {
+            "at": "2026-10-22T03:53:20.397Z",
+            "label": "Picked up by carrier",
+            "location": "Charlotte, NC"
+          },
+          {
+            "at": "2026-10-23T03:53:20.397Z",
+            "label": "Delivered",
+            "location": "New York, NY"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1012",
+      "customerId": "C-112",
+      "customer": {
+        "id": "C-112",
+        "name": "Jack Wilson",
+        "email": "jack.wilson@example.com",
+        "phone": "+1 801 555 0112"
+      },
+      "status": "cancelled",
+      "channel": "WhatsApp",
+      "placedAt": "2026-11-06T03:53:20.397Z",
+      "deliveredAt": null,
+      "cancelledAt": "2026-11-07T03:53:20.397Z",
+      "address": {
+        "line1": "3500 S State St",
+        "city": "Salt Lake City",
+        "state": "UT",
+        "postalCode": "84115"
+      },
+      "items": [
+        {
+          "sku": "NW-MUG",
+          "name": "Enamel Camp Mug",
+          "qty": 1,
+          "unitCents": 2900,
+          "variant": "Cream"
+        }
+      ],
+      "totalCents": 2900,
+      "refundedTotalCents": 0,
+      "shipment": null
+    }
+  ],
+  "returns": [
+    {
+      "id": "RMA-2B7QX",
+      "orderId": "1011",
+      "customerId": "C-111",
+      "reason": "Size too large",
+      "status": "received",
+      "createdAt": "2026-10-30T03:53:20.397Z",
+      "updatedAt": "2026-11-03T03:53:20.397Z",
+      "refundEstimateCents": 7500,
+      "dropoffBy": "2026-11-06T03:53:20.397Z"
+    }
+  ],
+  "refunds": [
+    {
+      "id": "RF-7K2M9",
+      "orderId": "1008",
+      "customerId": "C-108",
+      "amountCents": 4500,
+      "mode": "auto",
+      "status": "succeeded",
+      "reason": "Package arrived damaged",
+      "createdAt": "2026-11-02T03:53:20.397Z"
+    }
+  ],
+  "escalations": []
+}
